@@ -2,8 +2,9 @@
 real-time import of data-time
 
 
-# 1. 搭建elasticsearch集群
-
+# 1. 搭建elasticsearch5.6.1集群
+    ip: 172.25.0.244
+    ip: 172.25.0.245
 
 
 

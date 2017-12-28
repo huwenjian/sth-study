@@ -1,0 +1,34 @@
+#firewall相关命令
+
+# https://www.zhaokeli.com/Article/6321.html
+
+#在永久配置中 添加http服务
+    firewall-cmd --permanent --add-service=http
+#在不改变状态的条件下重新加载防火墙
+    firewall-cmd --reload
+
+#添加9200端口
+firewall-cmd  --add-port=9200/tcp --permanent
+
+#重启
+firewall-cmd --reload
+
+
+# 查看所有打开的端口：
+
+firewall-cmd --zone=dmz --list-ports
+
+
+#运行、停止、禁用firewalld
+
+#启动：
+ systemctl start firewalld
+
+#查看状态：
+ systemctl status firewalld 或者 firewall-cmd --state
+
+#停止：
+ systemctl disable firewalld
+
+#禁用：
+ systemctl stop firewalld
