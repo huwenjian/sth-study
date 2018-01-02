@@ -1,0 +1,45 @@
+#创建索引 https://www.cnblogs.com/phpshen/p/6085274.html
+
+curl -X PUT "http://172.25.0.244:9200/company" -d '{
+    "settings" : {
+        "analysis" : {
+            "analyzer" : {
+                "ik_max" : {
+                    "tokenizer" : "ik_max_word"
+                },
+                "ik_smart" : {
+                     "tokenizer" : "ik_smart"
+                }
+            }
+        }
+    },
+    "mappings" : {
+        "bizabnor" : {
+            "dynamic" : true,
+            "properties" : {
+                "id":{
+                        "type":"string",
+                        "index":"not_analyzed"
+                    },
+                    "impid":{
+                        "type":"string",
+                        "index":"not_analyzed"
+                    },
+                    "busexclist" : {
+                        "type":"string",
+                        "index":"not_analyzed"
+                    },
+                    "pripid" : {
+                        "type":"string",
+                        "index":"not_analyzed"
+                    }
+            }
+        }
+    }
+}'
+
+
+#测试ik分词
+http://172.25.0.244:9200/company/_analyze?analyzer=ik_max_word&text=中华人民共和国
+
+http://172.25.0.244:9200/company/_analyze?analyzer=ik_smart&text=中华人民共和国

@@ -1,4 +1,5 @@
 # http://blog.csdn.net/smilepasta035/article/details/73662425
+  http://blog.csdn.net/m0_37886429/article/details/68924087
 
 #linux nvm
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
@@ -49,11 +50,12 @@ this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http:
     firewall-cmd  --reload
 
 #后台启动
-    nohup grunt server &
-
+    pwd
+     /elasticsearch-head/node_modules/grunt/bin
+    ./grunt server &
 
 #关闭插件
 
-    ps aux|grep head
+    ps aux|grep grunt
 
     kill 进程号

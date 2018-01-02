@@ -9,6 +9,7 @@
 
 #添加9200端口
 firewall-cmd  --add-port=9200/tcp --permanent
+firewall-cmd  --add-port=9100/tcp --permanent
 
 #重启
 firewall-cmd --reload
