@@ -1,14 +1,12 @@
 #创建索引 https://www.cnblogs.com/phpshen/p/6085274.html
+#字段类型 http://blog.csdn.net/napoay/article/details/73100110
 
-curl -X PUT "http://172.25.0.244:9200/company" -d '{
+curl -X PUT "http://172.25.0.244:9200/company1" -d '{
     "settings" : {
         "analysis" : {
             "analyzer" : {
-                "ik_max" : {
-                    "tokenizer" : "ik_max_word"
-                },
-                "ik_smart" : {
-                     "tokenizer" : "ik_smart"
+                "ik" : {
+                    "tokenizer" : "ik_smart"
                 }
             }
         }
@@ -17,21 +15,19 @@ curl -X PUT "http://172.25.0.244:9200/company" -d '{
         "bizabnor" : {
             "dynamic" : true,
             "properties" : {
-                "id":{
-                        "type":"string",
-                        "index":"not_analyzed"
+                    "id":{
+                        "type":"text"
                     },
                     "impid":{
-                        "type":"string",
-                        "index":"not_analyzed"
+                        "type":"keyword"
                     },
-                    "busexclist" : {
-                        "type":"string",
-                        "index":"not_analyzed"
+                    "iksmart" : {
+                        "type":"text",
+                        "analyzer":"ik_smart"
                     },
-                    "pripid" : {
+                    "ik_max" : {
                         "type":"string",
-                        "index":"not_analyzed"
+                        "analyzer":"ik_max_word"
                     }
             }
         }
