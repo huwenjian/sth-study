@@ -1,0 +1,3 @@
+#nginx限制每个ip访问的频率和并发量
+
+http://blog.csdn.net/slovyz/article/details/53259305

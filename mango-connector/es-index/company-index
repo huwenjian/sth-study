@@ -8,6 +8,18 @@ curl -X PUT "http://172.25.0.244:9200/creditdb" -d '{
             }
         }
     },
+
+      "description" : "date-personal",
+      "processors" : [
+        {
+          "date" : {
+            "field" : "initial_date",
+            "target_field" : "timestamp",
+            "formats" : ["yyyy-MM-dd hh:mm:ss"]
+          }
+        }
+      ],
+
     "mappings" : {
         "mongodbtoes" : {
             "dynamic" : true,
@@ -40,7 +52,7 @@ curl -X PUT "http://172.25.0.244:9200/creditdb" -d '{
                         "analyzer":"ik_max_word"
                      },
                     "EndDate" : {
-                        "type":"date"
+                        "type":"text"
                      },
                     "EnglishName" : {
                         "type":"text",
@@ -87,7 +99,7 @@ curl -X PUT "http://172.25.0.244:9200/creditdb" -d '{
                         "analyzer":"ik_max_word"
                      },
                     "StartDate" : {
-                        "type":"date"
+                        "type":"text"
                      },
                     "Status" : {
                         "type":"keyword"
@@ -99,16 +111,16 @@ curl -X PUT "http://172.25.0.244:9200/creditdb" -d '{
                         "type":"keyword"
                      },
                     "TeamEnd" : {
-                        "type":"date"
+                        "type":"text"
                      },
                     "TermStart" : {
-                        "type":"date"
+                        "type":"text"
                      },
                     "UpdatedDate" : {
-                        "type":"date"
+                        "type":"text"
                      },
                     "created_date" : {
-                        "type":"date"
+                        "type":"text"
                      },
                     "is_expired" : {
                         "type":"keyword"
