@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a9c2c05-54ab-4847-ad27-a4c2fc7692f2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt" afterPath="$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nginx/anti-attack/code-level" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,11 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base-info-desc.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base-info-desc.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="37" column="45" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+            <state relative-caret-position="512">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="code-level" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nginx/anti-attack/code-level">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -124,6 +135,7 @@
         <option value="$PROJECT_DIR$/error/error" />
         <option value="$PROJECT_DIR$/nginx/anti-attack/by-shell.txt" />
         <option value="$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt" />
+        <option value="$PROJECT_DIR$/nginx/anti-attack/code-level" />
       </list>
     </option>
   </component>
@@ -294,12 +306,12 @@
       <option name="presentableId" value="Default" />
       <updated>1514946974923</updated>
       <workItem from="1514946979105" duration="13353000" />
-      <workItem from="1515152776716" duration="11726000" />
+      <workItem from="1515152776716" duration="12424000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25079000" />
+    <option name="totallyTimeSpent" value="25777000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -541,8 +553,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="37" column="45" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+        <state relative-caret-position="512">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/anti-attack/code-level">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
           <folding />
         </state>
       </provider>
