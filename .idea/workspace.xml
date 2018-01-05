@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a9c2c05-54ab-4847-ad27-a4c2fc7692f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nginx/anti-attack/by-shell.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nginx/anti-attack/testcc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nginx/net/net-study" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nginx/nginx-base/nginx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nginx/net/net-study" afterPath="$PROJECT_DIR$/nginx/net/net-study" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nginx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nginx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nginx/nginx-base/nginx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
@@ -78,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="net-study" pinned="false" current-in-tab="false">
+      <file leaf-file-name="net-study" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nginx/net/net-study">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+            <state relative-caret-position="17">
+              <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -116,8 +112,8 @@
         <option value="$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt" />
         <option value="$PROJECT_DIR$/nginx/anti-attack/by-shell.txt" />
         <option value="$PROJECT_DIR$/nginx/anti-attack/testcc" />
-        <option value="$PROJECT_DIR$/nginx/net/net-study" />
         <option value="$PROJECT_DIR$/nginx/nginx-base/nginx" />
+        <option value="$PROJECT_DIR$/nginx/net/net-study" />
       </list>
     </option>
   </component>
@@ -294,12 +290,12 @@
       <option name="presentableId" value="Default" />
       <updated>1514946974923</updated>
       <workItem from="1514946979105" duration="13353000" />
-      <workItem from="1515152776716" duration="6928000" />
+      <workItem from="1515152776716" duration="7088000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20281000" />
+    <option name="totallyTimeSpent" value="20441000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -323,7 +319,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15884861" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
@@ -515,14 +511,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nginx/net/net-study">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -535,6 +523,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/net/net-study">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
           <folding />
         </state>
       </provider>
