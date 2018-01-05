@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a9c2c05-54ab-4847-ad27-a4c2fc7692f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/error/error" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nginx/anti-attack/by-shell.txt" afterPath="$PROJECT_DIR$/nginx/anti-attack/by-shell.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt" afterPath="$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +18,7 @@
       <file leaf-file-name="company-index" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mango-connector/es-index/company-index">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="70">
               <caret line="111" column="23" lean-forward="false" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
               <folding />
             </state>
@@ -34,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base-info-desc.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base-info-desc.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="561">
+              <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -54,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="error" pinned="false" current-in-tab="true">
+      <file leaf-file-name="error" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/error/error">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -77,8 +78,8 @@
       <file leaf-file-name="by-shell.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nginx/anti-attack/by-shell.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="17" />
+            <state relative-caret-position="527">
+              <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -119,12 +120,12 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/mango-connector/es-index/company-index" />
         <option value="$PROJECT_DIR$/mango-connector/nginx/nginx-info" />
-        <option value="$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt" />
-        <option value="$PROJECT_DIR$/nginx/anti-attack/by-shell.txt" />
         <option value="$PROJECT_DIR$/nginx/anti-attack/testcc" />
         <option value="$PROJECT_DIR$/nginx/nginx-base/nginx" />
         <option value="$PROJECT_DIR$/nginx/net/net-study" />
         <option value="$PROJECT_DIR$/error/error" />
+        <option value="$PROJECT_DIR$/nginx/anti-attack/by-shell.txt" />
+        <option value="$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt" />
       </list>
     </option>
   </component>
@@ -165,7 +166,13 @@
             <path>
               <item name="mongo-elastic" type="b2602c69:ProjectViewProjectNode" />
               <item name="mongo-elastic" type="462c0819:PsiDirectoryNode" />
-              <item name="error" type="462c0819:PsiDirectoryNode" />
+              <item name="nginx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mongo-elastic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mongo-elastic" type="462c0819:PsiDirectoryNode" />
+              <item name="nginx" type="462c0819:PsiDirectoryNode" />
+              <item name="anti-attack" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -289,12 +296,12 @@
       <option name="presentableId" value="Default" />
       <updated>1514946974923</updated>
       <workItem from="1514946979105" duration="13353000" />
-      <workItem from="1515152776716" duration="7838000" />
+      <workItem from="1515152776716" duration="10439000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21191000" />
+    <option name="totallyTimeSpent" value="23792000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -462,22 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mango-connector/es-index/company-index">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="111" column="23" lean-forward="false" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mango-connector/nginx/nginx-info">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mango-connector/create-es-index">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -494,18 +485,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nginx/anti-attack/by-shell.txt">
+    <entry file="file://$PROJECT_DIR$/nginx/anti-attack/testcc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt">
+    <entry file="file://$PROJECT_DIR$/error/error">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="31" />
+        <state relative-caret-position="17">
+          <caret line="1" column="73" lean-forward="false" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
           <folding />
         </state>
       </provider>
@@ -518,14 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nginx/anti-attack/testcc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nginx/nginx-base/nginx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -534,10 +517,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/error/error">
+    <entry file="file://$PROJECT_DIR$/mango-connector/es-index/company-index">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="73" lean-forward="false" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
+        <state relative-caret-position="70">
+          <caret line="111" column="23" lean-forward="false" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/anti-attack/by-shell.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mango-connector/nginx/nginx-info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/nginx-base/base-info-desc.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
           <folding />
         </state>
       </provider>

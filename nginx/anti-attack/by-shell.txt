@@ -28,6 +28,8 @@ done
 service nginx reload
 
 
+#其他 取最后一个(NF-1)
+cat logs/access.log | awk -F '-' '{print $NF}'
 
 
 #2 by iptables
