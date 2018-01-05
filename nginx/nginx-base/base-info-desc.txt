@@ -1,0 +1,26 @@
+#nginx log https://www.cnblogs.com/x123811/p/6026666.html
+
+#配置access log日志的存储位置及文件，注意：access.log文件是可以按日期进行分割的，方便查看及处理
+    access_log  /usr/local/nginx/log/access.log  main;
+
+$remote_addr 与$http_x_forwarded_for 用以记录客户端的ip地址；
+$remote_user ：用来记录客户端用户名称；
+$time_local ： 用来记录访问时间与时区；
+$request ： 用来记录请求的url与http协议；
+$status ： 用来记录请求状态；成功是200，
+$body_bytes_s ent ：记录发送给客户端文件主体内容大小；
+$http_referer ：用来记录从那个页面链接访问过来的；
+$http_user_agent ：记录客户端浏览器的相关信息；
+
+
+#real-log
+    #log
+log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+    #like this:
+101.200.106.9 - - [05/Jan/2018:19:39:57 +0800] "GET /credit-server-hello-boy/--- HTTP/1.1" 200 0 "
+-" "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; SE 2.X MetaSr 1.0; SE 2.X MetaSr 1.0; .NET CLR 2.0.50727; SE 2.X MetaSr 1.0)"
+"72.66.124.107, 39.107.53.213"
+
+

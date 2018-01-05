@@ -1,0 +1,10 @@
+
+for i in {1..1000} ;
+do curl  -o /dev/null-s -w %{http_code} http://server.credit100.com//credit-server-hello-boy/info/index//?page=1&size=10&type=name&companyName=阿里巴巴&shangshi=&zhuceziben=&guimo=&chenglishijian=&xsb= ;
+echo " ";
+echo $i ;
+date ;
+done
+
+
+ab -c 10 -n 100 http://www.aliyun.com/
