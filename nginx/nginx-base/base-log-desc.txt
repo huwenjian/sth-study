@@ -15,6 +15,7 @@ $http_user_agent ：记录客户端浏览器的相关信息；
 $proxy_add_x_forwarded_for变量包含客户端请求头中的"X-Forwarded-For"，与$remote_addr用逗号分开，如果没有"X-Forwarded-For" 请求头，则$proxy_add_x_forwarded_for等于$remote_addr。
     X-Forwarded-For: client1, proxy1, proxy2
     从标准格式可以看出，X-Forwarded-For头信息可以有多个，中间用逗号分隔，第一项为真实的客户端ip，剩下的就是曾经经过的代理或负载均衡的ip地址，经过几个就会出现几个。
+    <阿里员工>正常来说，应该是XFF里面第一个IP是真实IP，但一旦经过伪造，比如我瞎写一个IP放在XFF里然后去刷你，这种情况下真实IP应该是remote_addr里的
 
 #real-log
     #log
@@ -36,6 +37,13 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 
 #count nginx https://www.cnblogs.com/276815076/p/6410179.html
 #real_ip http://www.wangjingfeng.com/768.html
+
+
+
+#<阿里解决方案>
+USERAGENT 包含Googlebot  阻断
+39.107.0.0/16    精准阻断39.107.*
+
 
 
 
