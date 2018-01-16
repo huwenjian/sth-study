@@ -9,3 +9,9 @@
         listen     80;
         server_name baidu.com;
         }
+
+
+
+
+##Nginx ????Nginx? ??? ????
+http://blog.csdn.net/youbingchen/article/details/51682228
