@@ -1,2 +1,14 @@
 #lua
-#nginx + lua 灰度发布
+#nginx + lua
+    优点 ： 充分利用Nginx的兵法处理epoll（非阻塞IO）优势和lua轻量实现简单的功能切高并发的场景  === 也就是说 简单高效
+    用处 ： 分析日志 灰度发布
+
+
+#linux 安装
+    yum install lua
+
+#Nginx + lua 环境
+
+    1: aJIT 解释器 比lua解释器更高效
+    2: ngx_devel_kit 和 lua-nginx-module 模块
+    3: 重新编译Nginx
