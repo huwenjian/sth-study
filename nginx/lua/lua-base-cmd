@@ -1,0 +1,44 @@
+#lua 基础语法
+    lua
+    vim test.lua print("hello world!")
+    ~1 注释
+         -- 行注释
+         --[[
+            块注释
+         --]]
+    ~2 lua
+         a = 'alo\n123"'
+         a = "alo\n123""
+         a = '\97lo\10\04923'  --支持asc写法
+         a = [[alo
+              123"]]
+         数值类型只有double型
+         布尔类型 nil(空) false 0和空字符串('\0') true
+         lua变量如果没有特殊说明 则是全局变量 局部变量为 local
+
+
+    ~3 while 循环
+         sum = 0
+         sum = 1
+         while num <= 100 do
+            sum = sum + sum
+            num = num +1
+         end
+         print("sum = ",sum)
+         ** lua 不支持++ += 这样的语法操作
+
+    ~4 for   循环
+         sum = 0
+         for i = 1,100 do
+            sum = sum + i
+         end
+
+    ~5 if-else
+        if age == 40 and sex == "Male" then
+            print("大于40岁的男人")
+        elseif age > 60 and sex ~="Famale" then   /** ~= 不等于 **/
+            print("非女人而且大于60")
+        else
+            local age = io.read()                /** io.read() 表示从屏幕的终端读取信息  @TODO search io write **/
+            print("Your age is "..age)             /** .. 字符串的拼接操作符 **/
+        end                                      /** io库的分别从stdin 和stdout 读写的read和write函数 **/
