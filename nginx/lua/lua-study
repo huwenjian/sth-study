@@ -9,6 +9,17 @@
 
 #Nginx + lua 环境
 
-    1: aJIT 解释器 比lua解释器更高效
+    1: luaJIT 解释器 比lua解释器更高效
+        wget http://luajit.org/download/LuaJIT-2.0.2.tar.gz
+        make install PREFIX=/usr/local/LuaJIT
+        export LUAJIT_LIB = /usr/local/LusJIT/lib
+        export LUAJIT_INC = /usr/local/LuaJIT/include/luajit-2.0
+
     2: ngx_devel_kit 和 lua-nginx-module 模块
     3: 重新编译Nginx
+    ~~~ 查看nginx版本以及包含的模块 nginx -V
+
+
+#Nginx 调用 Lua 的指令及Nginx的Lua api接口
+    Nginx <--> Lua
+
