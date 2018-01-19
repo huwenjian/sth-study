@@ -1,5 +1,6 @@
 #创建索引 https://www.cnblogs.com/phpshen/p/6085274.html
 #字段类型 http://blog.csdn.net/napoay/article/details/73100110
+#Hanlp-smart http://blog.csdn.net/pengcong90/article/details/76843760
 
 curl -X PUT "http://172.25.0.244:9200/company1" -d '{
     "settings" : {
