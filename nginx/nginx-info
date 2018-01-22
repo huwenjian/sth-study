@@ -1,3 +1,5 @@
 #nginx限制每个ip访问的频率和并发量
 
 http://blog.csdn.net/slovyz/article/details/53259305
+
+#nginx 部署web-app和mobile两套前端业务代码 http://blog.csdn.net/xiaoyu411502/article/details/51052668
