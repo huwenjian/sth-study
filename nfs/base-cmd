@@ -1,0 +1,2 @@
+#mount
+mount -t nfs -o vers=4.0 014544bbf6-wdt41.cn-hangzhou.nas.aliyuncs.com:/ /data

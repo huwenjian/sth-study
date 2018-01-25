@@ -1,0 +1,2 @@
+#确认nginx是否安装了realip模块
+    nginx -V | grep realip
