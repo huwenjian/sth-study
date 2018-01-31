@@ -1,0 +1,25 @@
+# ali-web1 恢复镜像
+    1. 启动nginx
+        nginx
+    2. mount nas /data (找见正确的nas路径)
+        mount -t nfs -o vers=4.0 1600a4acf5-uau86.cn-hangzhou.nas.aliyuncs.com:/ /data
+
+# ali-tomcat1 镜像
+    1. 启动tomcat
+        ./bin/startup.sh
+
+# api 镜像
+    1. 启动jar包
+        java -jar /usr/local/credit/credit-api.jar
+
+# ftp-server镜像
+    1. mount nas /data  (找见正确的nas路径)
+        mount -t nfs -o vers=4.0 1600a4acf5-uau86.cn-hangzhou.nas.aliyuncs.com:/ /data
+    1. 启动ftp-server
+        systemctl start vsftpd
+
+
+
+#nfs 20180201 web1 已经备份
+    cp -r /data /data-beifen
+

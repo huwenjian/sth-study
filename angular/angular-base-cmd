@@ -1,0 +1,11 @@
+# angular
+
+
+
+
+
+# 安装 angular 最新版本
+    rm -rf node_modules
+    npm uninstall  --save-dev angular-cli
+    npm install --save-dev @angular/cli@latest
+    npm install

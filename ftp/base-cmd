@@ -1,0 +1,18 @@
+#mount
+#安装 nfs-utils
+        centos：yum install nfs-utils
+#挂载
+        mount -t nfs -o vers=4.0 1600a4acf5-uau86.cn-beijing.nas.aliyuncs.com:/ /data
+
+
+
+
+#安装ftp客户端 lftp    lftp
+    yum intall lftp
+
+    lftp ftp://ftpuser:123456@192.168.60.73:21
+
+
+#安装ftp
+    1. yum install vsftpd
+    2. 将vsftpd 覆盖 /etc/
