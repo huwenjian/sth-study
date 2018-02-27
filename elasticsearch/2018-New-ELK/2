@@ -1,0 +1,50 @@
+# 常用术语
+    1 文档 Document 用户存在es里面的数据 es的最小单元
+    2 索引 index    在6.0 之后  好比sql中的table ||-->官方 不允许在一个index 下建多个type 也就是说 一个index 只有一个type; 也许 type意义 就会去掉（type其实和index 没有什么区别 当初设计的时候 为什么要加type？参考数据库吗）
+    3 节点 node     一个节点相当于es的一个运行实例 是集群的构成单元
+    4 集群 cluster  有一个 或 多个节点组成 对外提供服务
+
+   1: Document
+      字符串 text keyword
+      数值型 long integer short byte double float half_float scaled_float (1|0 byte)
+      布尔型 boolean
+      日 期  date
+      二进制 binary
+      范围类型 integer_range float_range long_range double_range date_range
+      # 特点
+      每一个 文档都有一个指定的唯一id标识 自己指定 或者 自动生成 (_all新版本已经默认禁用 ： 占用磁盘空间高 效果不好)
+   2: Index
+      每个索引都有自己的mapping 用于定义字段名和类型
+      一个集群有多个索引 相当于多个表 table
+
+   3：Restful API
+      REST : REpresentational State Transfer 表现层资源转移
+      URL  : 指定资源
+      HttpMethod : 指名资源操作类型 GET PUT POST DELETE
+
+   4: 交互方式
+      -curl
+      -Kibana DevTools
+
+   5: Document Api
+      - 创建文档api
+      - es可以一次创建多个文档 从而减少网络开支 提升写入速率
+        _bulk :
+        POST _bulk      index 会覆盖 create 不会覆盖 会报错
+        {"index":{"index":"test_index","_type":"doc","_id":"1"}}
+        {"name":"huwenjian","age":"26"}
+
+        {"create":{"index":"test_index","_type":"doc","_id":"1"}}
+        {"name":"huwenjian","age":"26"}
+
+        {"update":{"index":"test_index","_type":"doc","_id":"1"}}
+        {"name":"huwenjian","age":"26"}
+
+        {"delete":{"index":"test_index","_type":"doc","_id":"1"}}
+
+
+
+
+
+
+
