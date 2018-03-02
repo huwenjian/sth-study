@@ -14,7 +14,7 @@ curl -X PUT "http://172.25.0.244:9200/company1" -d '{
     },
     "mappings" : {
         "bizabnor" : {
-            "dynamic" : true,
+            "dynamic" : true, //动态添加字段 true false(可以写入 不可以查询) strict(严格 报错) 针对nginx日志的cokie 设置为false 只添加已经建好mapping的cokie字段
             "properties" : {
                     "id":{
                         "type":"text"
