@@ -1,0 +1,4 @@
+#Linux中的查看已挂载的文件系统命令
+    mount -l//列出已挂载的所有类型的文件系统
+    mount -l -t nfs//列出已挂载的所有nfs文件系统
+    umount dir//unmount fs
