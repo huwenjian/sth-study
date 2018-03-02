@@ -1,0 +1,36 @@
+#
+
+
+#自定义mapping
+
+
+    #4-4 copy_to
+
+
+    #4-5 index false false即为 不可查询 会报错-》针对敏感信息 如身份证号
+       - PUT my_index
+         {
+            "mappings":{
+                "doc":{
+                    "properties":{
+                        "cookie":{
+                            "type":"text",
+                            "index":"false"
+                        }
+                    }
+                }
+            }
+         }
+       - PUT my_index/doc/1
+        {
+          "cookie": "name=huwenjian"
+        }
+       - GET my_index/_search
+        {
+          "query":{
+            "match":{
+                "cookie":"name"
+              }
+           }
+        }
+    #4-6 index_options 用于控制倒排索引记录的内容
