@@ -36,3 +36,45 @@
         }
     #4-6 index_options 用于控制倒排索引记录的内容
          值为空默认为null  "null_value":"NULL"
+
+
+    #4-7 mapping 文档说明
+         doc_values
+
+    #4-8 数据类型
+         long integer short byte double float half_float scaled_float (1|0 byte)   float比double节省50%空间
+         array 由第一个非null值决定
+         ip
+         多字段 比如 汉子+拼音
+         PUT my_index
+                  {
+                     "mappings":{
+                         "doc":{
+                             "properties":{
+                                 "username":{
+                                     "type":"text",
+                                     "fields":{
+                                        "pinyin":{
+                                            "type":"text",
+                                            "analyzer":"pinyin"
+                                        }
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                  }
+         GET my_index/_search
+         {
+            "query":{
+                "match":{
+                    "username.pinyin":"hanhan"
+                }
+            }
+         }
+
+
+    #4-11 Dynamic Templates API
+
+
+
