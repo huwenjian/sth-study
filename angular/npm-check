@@ -1,0 +1,33 @@
+#npm模块管理进阶 — npm-check + cnpm 构建完美的包更新环境
+    https://segmentfault.com/a/1190000011085967
+
+#npm check
+    http://blog.csdn.net/zsl_955200/article/details/78813329
+
+    >npm-check安装
+      npm install -g npm-check //全局安装。项目下安装可自行选择
+      npm install npm-check    //项目下安装，项目根目录执行
+
+    >查看包更新信息，会有小黄脸提示你包的相关情况（需更新，缺失，错误以及未使用等）（表情包大牛。。。）
+      npm-check
+
+    >基础就是这样，下面是npm-check指令列表:
+
+        -u, --update       显示一个交互式UI，用于选择要更新的模块，并自动更新"package.json"内包版本号信息
+        -g, --global       检查全局下的包
+        -s, --skip-unused  忽略对未使用包的更新检查
+        -p, --production   忽略对"devDependencies"下的包的检查
+        -d, --dev-only     忽略对"dependencies"下的包的检查
+        -i, --ignore       忽略对指定包的检查.
+        -E, --save-exact   将确切的包版本存至"package.json"(注意，此命令将存储'x.y.z'而不是'^x.y.z')
+
+#cmd
+    安装 npm i *
+    更新 npm update *
+    卸载 npm uninstall *
+
+    定义
+    check:检查。就是要检查那些过时的、不用的、不正确的包
+    安装
+    npm i npm-check
+    node版本要求：node >=0.11 （就当是废话）
