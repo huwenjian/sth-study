@@ -15,7 +15,8 @@
                     "properties":{
                         "cookie":{
                             "type":"text",
-                            "index":"false"
+                            "index":"false",
+                            "null_value":"NULL"
                         }
                     }
                 }
@@ -34,3 +35,4 @@
            }
         }
     #4-6 index_options 用于控制倒排索引记录的内容
+         值为空默认为null  "null_value":"NULL"
