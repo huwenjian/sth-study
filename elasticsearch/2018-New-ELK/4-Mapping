@@ -75,6 +75,64 @@
 
 
     #4-11 Dynamic Templates API
+          根据字段名动态创建mapping
+          match_mapping_type 匹配es自动识别得字段类型 like: bloolean long string
+          match unmatch 匹配字段名 (以message开头设置为text)
+          path_match path_unmatch 匹配路径
+          eg 1 :  将字符串设置为keyword类型(es默认会为字符串设置为text类型 并增加一个keyword的子字段)
+          PUT my_index
+          {
+            "mappings":{
+                "doc":{
+                    "dynamic_templates":[{
+                        "strings_as_keyword":{
+                            "match_mapping_type":"string",
+                            "mapping":{
+                            "type":"keyword"
+                            }
+                        }
+                    }]
+                }
+            }
+          }
+          eg 2 : 以message开头的字段都设置为text类型
+          PUT my_index
+          {
+            "mappings":{
+                "doc":{
+                   "dynamic_templates":[{
+                      "message_as_text":{
+                         "match_mapping_type":"string",
+                         "match":"message",
+                         "mapping":{
+                         "type":"text"
+                       }
+                     }
+                   }]
+                }
+             }
+          }
+          eg 3 : double类型设定为float,节省空间
+          {
+            "mappings":{
+                "doc":{
+                   "dynamic_templates":[{
+                      "double_as_float":{
+                         "match_mapping_type":"double",
+                         "mapping":{
+                         "type":"float"
+                       }
+                     }
+                   }]
+                }
+             }
+          }
+    #4-12 自定义mapping的建议
+          建立索引简单步骤：
+                1 先写入一条文档到es中 获取es自动生成的mapping
+                2 修改步骤1得到的mapping 自定义相关配置
+                3 使用步骤2的mapping创建实际所需索引
+
 
 
 
