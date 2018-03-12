@@ -127,11 +127,91 @@
                 }
              }
           }
+
+
+
     #4-12 自定义mapping的建议
           建立索引简单步骤：
                 1 先写入一条文档到es中 获取es自动生成的mapping
                 2 修改步骤1得到的mapping 自定义相关配置
                 3 使用步骤2的mapping创建实际所需索引
+          eg : 默认字符串为keyword 需要的设置为特定类型 --> 为了减少mapping使用量
+          curl -X PUT 'localhost:9200/accounts' -d '
+          {
+            "mappings": {
+              "person": {
+                 "dynamic_templates":[{
+                      "string_as_keyword":{
+                         "match_mapping_type":"string",
+                         "mapping":{
+                         "type":"keyword"
+                       }
+                     }
+                 }],
+                "properties": {
+                  "url":{
+                    "type":"text"
+                  },
+                  "body_sent":{
+                    "properties":{
+                        "bytes":{
+                           "type":"long"
+                        }
+                    }
+                  },
+                  "user": {
+                    "type": "text",
+                    "analyzer": "ik_max_word",
+                    "search_analyzer": "ik_max_word"
+                  },
+                  "title": {
+                    "type": "text",
+                    "analyzer": "ik_max_word",
+                    "search_analyzer": "ik_max_word"
+                  },
+                  "desc": {
+                    "type": "text",
+                    "analyzer": "ik_max_word",
+                    "search_analyzer": "ik_max_word"
+                  }
+                }
+              }
+            }
+          }'
+    #4-13 索引模板 index_template
+        @todo number_of_shards
+
+        GET _template
+        GET _template/test_template
+        DELETE _template/test_template
+
+        PUT _template/template_1
+        {
+          "index_patterns": ["te*", "bar*"],
+          "settings": {
+            "number_of_shards": 1
+          },
+          "mappings": {
+            "type1": {
+              "_source": {
+                "enabled": false
+              },
+              "properties": {
+                "host_name": {
+                  "type": "keyword"
+                },
+                "created_at": {
+                  "type": "date",
+                  "format": "EEE MMM dd HH:mm:ss Z YYYY"
+                }
+              }
+            }
+          }
+        }
+
+
+    #4-14
+
 
 
 

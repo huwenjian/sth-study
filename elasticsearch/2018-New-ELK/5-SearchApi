@@ -1,0 +1,53 @@
+# Search API
+     5-1 :
+        查询主要有两种形式
+            -URI Search  （操作简单 方便作测试 只包含一部分查询语法）
+                -操作简便 方便通过命令行测试
+                -仅包含部分查询语法
+                    q:haha 查询haha
+                    df: default filed
+                    sort:排序
+                    timeout:指定超时时间 默认不超时
+                    from,size 用于分页
+
+              eg: 1 GET /my_index/_search?q=user:alfred
+                  --支持es查询过程
+                  2 GET /my_index/_search?q=user:alfred
+                  {
+                    "profile":true
+                  }
+
+                  3 GET /my_index/_search?q=alfred&df=user&sort=age:asc&from=4&size=10&timeout=1s
+                                        q=alfred way    q="alfred way"  q=username:(alfred way)
+              #布尔操作符
+                  AND(&&) OR(||) NOT(!)  --> 注意！不能小写
+                    name:(tom NOT lee)
+                  +- 分别对应 must 和 must not
+                    name:(tom +lee -alfred)
+                    name:((lee && !alfred)||(tom && lee !alfred))
+                    + 在url中会被解析为空格 要使用encode 后结果才可以 %2B
+              #范围查询 支持数值和日期
+                  age:[1 TO 10] 1<=age<=10
+                  age:[1 TO 10} 1<=age<10
+                  age:[1 TO]    1<=age
+                  age:[* TO 10] age<=10
+                  算数符号写法
+                    age:>=1
+                    age:(>=1&&<=10)
+                    age:(+>=1 +<=10)
+            -Request Body Search
+                -es提供的晚辈查询语法 Query DSL(Domain Specific Language)
+
+              eg:
+                GET /my_index/_search
+                    {
+                        "query":{
+                            "term":{
+                                "user":"alfred"
+                            },
+                            "sort":{
+                                "":""
+                            }
+                        }
+                    }
+
