@@ -1,7 +1,7 @@
 # Search API
      5-1 :
         查询主要有两种形式
-            -URI Search  （操作简单 方便作测试 只包含一部分查询语法）
+        >>> -URI Search  （操作简单 方便作测试 只包含一部分查询语法）
                 -操作简便 方便通过命令行测试
                 -仅包含部分查询语法
                     q:haha 查询haha
@@ -35,7 +35,33 @@
                     age:>=1
                     age:(>=1&&<=10)
                     age:(+>=1 +<=10)
-            -Request Body Search
+                  日期 year:(>1980 <2016)
+
+              #通配符查询
+                  - ? 代表一个字符 * 代表多个字符
+                    name:t?m
+                    name:tom*
+                    name:t*m
+                  通配符匹配执行效率低 且占用较多内存 不建议使用
+                  如无特殊需求 不要将 ?/* 放在最前面 因为 这样要匹配所有的文档 效率是最低的 吃光内存 导致OOM 问题
+              #正则表达式
+               name:/[mb]oat/   < ===> name:moat||boat
+                  比较吃内存 尽量减少使用正则表达式
+              #模糊匹配 fuzzy query
+               name:roam~1
+               匹配与roam差一个character的词 比如 foam roams 等
+              #近似度查询 proximity search
+               "fox quick"~5
+               以term为单位进行差异比较 允许有5个term  比如"quick fox" "quick brown fox" 都会被匹配
+
+               用处: 用于客户输入纠错方面
+
+        >>>>  -Request Body Search 将查询语句通过http request body 发送到es 主要包含如下参数
+                -query:
+                -from,size
+                -timeout
+                -sort
+                -...
                 -es提供的晚辈查询语法 Query DSL(Domain Specific Language)
 
               eg:
@@ -51,3 +77,63 @@
                         }
                     }
 
+              #query DSL -基于json定义的查询语言,主要包含两种类型
+                    -字段类查询
+                        如 term match range等,只针对某一个字段进行查询
+                        #全文匹配
+                            针对text类型的字段进行全文检索 会对查询语句先进行分词处理 如match match_phrase 等query类型
+                         eg: GET my_index/_search
+                                {
+                                    "query":{
+                                        "match":{
+                                            "username":"alfred way",
+                                            "operator":"and",            //default or
+                                            "minimum_should_match":"2"   //控制需要匹配的单词数 如果单词数大于query 也就是说 是operator的升级属性 比operator更灵活
+                                        }
+                                    }
+                                }
+                        #单词匹配
+                            不会对查询语句做语法处理 直接去处理匹配字段的倒排索引 如 term terms range 等query类型
+
+
+
+
+                    -复合查询
+                        如 bool 查询等 包含一个或者多个字段类或者复合查询语句
+
+        #5-5 相关性算分
+             #相关性算分是指文档与查询语句间的相关度 relevance
+                -通过倒排索引可以获取查询语句相匹配的文档列表 那么 如何将更符合用户查询结果的文档放到最前面呢？
+                -本质是一个排序问题,排序的依据是相关性得分
+             #相关性算法的几个重要的概念
+                -Term Frequency(TF)词频,即单词在该文档中出现的次数 词频越高 相关性就越高
+                -Document Frequency(DF)文档频率 即单词出现的文档数
+                -Inverse Document Frequency(IDF)逆向文档频率 与文档频率相反 简单理解1/DF 即单词出现频率的文档越少 相关度越高
+                -Filed-length Norm 文档越短 相关性越高
+             #Es目前最主要的相关性算分模型
+                - TF/IDF 模型 详见 TF/IDF
+                - BM25   模型 5.x之后的默认模型
+
+
+             #可以通过explain参数来查看具体的方法 注意：
+                - es的算分是按照shard进行的 即 shard的分数计算相互独立的 所以在使用explain的时候要注意分片数
+                - 可以通过设置索引的分片数为1 来避免这个问题
+                # match query
+                GET my_index/_search
+                {
+                  "explain":true,
+                  "query": {
+                    "match": {
+                      "username": "alfred way"
+                    }
+                  }
+                }
+                # 设置 index shard ?
+                PUT test_search_index
+                {
+                  "settings": {
+                    "index":{
+                        "number_of_shards": "1"
+                    }
+                  }
+                }
