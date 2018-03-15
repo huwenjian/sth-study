@@ -1,0 +1,21 @@
+#query DSL
+    # match
+        GET test_search_index/_search
+        {
+          "explain":true,
+          "query": {
+             "username":"alfred way",
+             "operator":"and",            //default or
+             "minimum_should_match":"2"   //控制需要匹配的单词数 如果单词数大于query 也就是说 是operator的升级属性 比operator更灵活
+          }
+        }
+
+    #match phrase query 对字段作检索 有顺序要求
+        GET test_search_index/_search
+        {
+          "query": {
+            "match_phrase": {
+              "job": "java engineer"
+            }
+          }
+        }

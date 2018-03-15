@@ -114,26 +114,27 @@
                 - TF/IDF 模型 详见 TF/IDF
                 - BM25   模型 5.x之后的默认模型
 
-
-             #可以通过explain参数来查看具体的方法 注意：
-                - es的算分是按照shard进行的 即 shard的分数计算相互独立的 所以在使用explain的时候要注意分片数
-                - 可以通过设置索引的分片数为1 来避免这个问题
-                # match query
-                GET my_index/_search
-                {
-                  "explain":true,
-                  "query": {
-                    "match": {
-                      "username": "alfred way"
+                 ##可以通过explain参数来查看具体的方法 注意：
+                    - es的算分是按照shard进行的 即 shard的分数计算相互独立的 所以在使用explain的时候要注意分片数
+                    - 可以通过设置索引的分片数为1 来避免这个问题
+                    # match query
+                    GET my_index/_search
+                    {
+                      "explain":true,
+                      "query": {
+                        "match": {
+                          "username": "alfred way"
+                        }
+                      }
                     }
-                  }
-                }
-                # 设置 index shard ?
-                PUT test_search_index
-                {
-                  "settings": {
-                    "index":{
-                        "number_of_shards": "1"
+                    ==> explanatin { how score}
+                    # 设置 index shard ?
+                    PUT test_search_index
+                    {
+                      "settings": {
+                        "index":{
+                            "number_of_shards": "1"
+                        }
+                      }
                     }
-                  }
-                }
+                 ##BM25 模型中BM是指BestMatch 25指迭代了25次才计算方法 是针对TF/IDF 得一个优化
