@@ -15,7 +15,10 @@
         {
           "query": {
             "match_phrase": {
-              "job": "java engineer"
+              "job": "java engineer",
+              "slop":"1"     //通过slop参数可以控制单词间的间隔 可以返回 java hello engineer
             }
           }
         }
+
+
