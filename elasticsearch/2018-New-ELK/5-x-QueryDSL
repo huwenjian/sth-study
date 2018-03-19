@@ -21,4 +21,130 @@
           }
         }
 
+    # query string
+        GET test_search_index/_search
+        {
+          "profile":true,
+          "query":{
+            "query_string": {
+              "default_field": "username",
+              "query": "alfred AND way"
+            }
+          }
+        }
+
+       GET test_search_index/_search
+       {
+         "profile":true,
+         "query": {
+           "query_string": {
+             "fields": [
+               "username",
+               "job"
+             ],
+             "query": "alfred OR (java AND ruby)"   包含alfred或者(java和ruby)
+           }
+         }
+       }
+        # simple query string
+            类似QueryString 会忽略错误的查询语法 并且仅支持部分查询语法
+            其常用的逻辑符号如下 不能使用AND OR NOE 等关键词 (AND 被当 and 查询)
+            +：代指 AND
+            |：代指 OR
+            -：代指 NOT
+        GET test_search_index/_search
+        {
+          "profile":true,
+          "query":{
+            "simple_query_string": {
+             "query": "alfred +way \"java", 必须包含way 可以包含alfred  \"java" 在query_string (里面会报错 而在simple_query_string 不会报错)
+             "fields": ["username"]
+            }
+          }
+        }
+
+
+
+
+
+
+        #term-terms-query 不会对 传入的内容作分词查询
+            # term query
+                    GET test_search_index/_search
+                    {
+                      "query":{
+                        "term":{
+                          "username":"alfred"
+                        }
+                      }
+                    }
+            #terms query
+            GET test_search_index/_search
+            {
+              "query": {
+                "terms": {
+                  "username": [
+                    "alfred",
+                    "way"
+                  ]
+                }
+              }
+            }
+
+        #range query
+            #查询年龄 大于等于10 小于等于30
+            GET test_search_index/_search
+            {
+              "query":{
+                "range": {
+                  "age": {
+                    "gte": 10,
+                    "lte": 30
+                  }
+                }
+              }
+            }
+
+            #查询日期
+                #大于1980-0101
+            GET test_search_index/_search
+            {
+              "query":{
+                "range": {
+                  "birth": {
+                    "gte": "1980-01-01"
+                  }
+                }
+              }
+            }
+                #data math
+                now：可以是当前日期 也可以指定日期 如：2018-01-01 使用具体日期 要用|| 作横幅
+                +1h 加 1小时
+                -d  减一天
+                /d  将时间舍入到天
+
+                #主要单位有如下几种  y:years M：months w：weeks d:days h:hours m:minutes s:seconds
+            GET test_search_index/_search
+            {
+              "query":{
+                "range": {
+                  "birth": {
+                    "gte": "now-30y"
+                  }
+                }
+              }
+            }
+                ##具体时间
+            GET test_search_index/_search
+            {
+              "query":{
+                "range": {
+                  "birth": {
+                    "gte": "2010||-20y/d"  1990
+                  }
+                }
+              }
+            }
+
+
 
