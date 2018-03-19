@@ -146,5 +146,199 @@
               }
             }
 
+        #复合查询 包含字段类查询或复合查询的类型
+            -constant_score_query
+            -bool query
+            -dis_max_query
+            -function_score query
+            -boosting query
+
+                #constant_score_query 该查询将其内部的查询结果文档得分都设定为1 或者boost的值
+                    -多用于结合bool查询实现自定义得分
+
+                    # constant score
+                    GET test_search_index/_search
+                    {
+                      "query":{
+                        "constant_score": {
+                          "filter": {   //filter只能有一个
+                            "match":{
+                              "username":"alfred"
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    #GET test_search_index/_search
+                    {
+                      "query": {
+                        "bool": {
+                          "should": [
+                            {
+                              "constant_score": {
+                                "filter": {
+                                  "match": {
+                                    "job": "java"
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "constant_score": {
+                                "filter": {
+                                  "match": {
+                                    "job": "ruby"
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                #bool query
+                    -filter 查询只过滤符合条件的文档 不会进行相关性得分
+                        -es针对filter会有智能缓存 因此执行效率很高
+                        -做简单匹配查询且不考虑算分时 推荐使用filter替代query
+
+                        ##filter query
+                         GET test_search_index/_search
+                         {
+                           "query": {
+                             "bool": {
+                               "filter": [
+                                 {
+                                   "term": {
+                                     "username": "alfred"
+                                   }
+                                 }
+                               ]
+                             }
+                           }
+                         }
+                    -must
+
+                        GET test_search_index/_search
+                        {
+                          "query": {
+                            "bool": {
+                              "must": [
+                                {
+                                  "match": {
+                                    "username": "alfred"
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "job": "specialist"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                    -must_not
+                        GET test_search_index/_search
+                        {
+                          "query": {
+                            "bool": {
+                              "must": [
+                                {
+                                  "match": {
+                                    "job": "java"
+                                  }
+                                }
+                              ],
+                              "must_not": [
+                                {
+                                  "match": {
+                                    "job": "ruby"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                    -should
+                        minimum_should_match 可以控制满足条件的个数或者百分比
+                        GET test_search_index/_search
+                        {
+                          "query": {
+                            "bool": {
+                              "should": [
+                                {
+                                  "match": {
+                                    "username": "junior"
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "job": "ruby"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+
+                        GET test_search_index/_search
+                        {
+                          "query": {
+                            "bool": {
+                              "should": [
+                                {"term": {"job": "java"}},
+                                {"term": {"job": "ruby"}},
+                                {"term": {"job": "specialist"}}
+                              ],
+                              "minimum_should_match": 2
+                            }
+                          }
+                        }
+
+                        #同时包含should和must时 文档不必满足should中的条件,但是如果满足条件,会增加相关性得分
+                        GET test_search_index/_search
+                        {
+                          "query": {
+                            "bool": {
+                              "must": [
+                                {
+                                  "term": {
+                                    "username": "alfred"
+                                  }
+                                }
+                              ],
+                              "should": [
+                                {
+                                  "term": {
+                                    "job": "ruby"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+
+
+                    #################
+                    GET test_search_index/_search
+                    {
+                      "query": {
+                        "bool": {
+                          "must": [
+                            {}
+                          ],
+                          "must_not": [
+                            {}
+                          ],
+                          "should": [
+                            {}
+                          ],
+                          "filter": [
+                            {}
+                          ]
+                        }
+                      }
+                    }
 
 
