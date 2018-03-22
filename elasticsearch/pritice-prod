@@ -37,12 +37,13 @@
        "regist_capi": "desc"
       }
     }
-  #1.4 term + prefix
+   #1.4 term + prefix
+  ## https://www.cnblogs.com/zhaijunming5/p/6427100.html
     {
     	"query": {
     		"bool": {
     			"must": [{
-    				"term": {
+    				"match": {
     					"Name": "新华社"
     				}
     			}],
