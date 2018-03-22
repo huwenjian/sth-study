@@ -1,0 +1,62 @@
+#生产
+
+  #1.1 开始演化
+    {
+        "query":{
+            "query_string":{
+                "default_field":"Name",
+                "query":"新华社"
+            }
+        }
+    }
+  #1.2 按注册资金排序desc
+
+    {
+    	"query": {
+    		"query_string": {
+    			"default_field": "Name",
+    			"query": "新华社"
+    		}
+    	},
+    	"sort": {
+    		"regist_capi": "desc"
+    	}
+    }
+
+
+
+
+  #1.3 @todo 按注册资金排序 desc+prefix
+    {
+      "query": {
+        "prefix": {
+          "Name": "新华社"
+        }
+      },
+       "sort": {
+       "regist_capi": "desc"
+      }
+    }
+  #1.4 term + prefix
+    {
+    	"query": {
+    		"bool": {
+    			"must": [{
+    				"term": {
+    					"Name": "新华社"
+    				}
+    			}],
+    			"should": [{
+    				"term": {
+    					"job": "新华社"
+    				}
+    			}]
+    		}
+    	}
+    }
+
+
+
+
+  https://coyee.com/article/10764-23-useful-elasticsearch-example-queries
+  #多字段查询 提高分值
