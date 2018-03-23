@@ -43,19 +43,86 @@
     	"query": {
     		"bool": {
     			"must": [{
-    				"match": {
-    					"Name": "新华社"
+    				"query_string": {
+    				    "default_field":"Name",
+    					"query": "新华社"
     				}
     			}],
     			"should": [{
     				"term": {
-    					"job": "新华社"
+    					"Name": "新华社"
     				}
-    			}]
+    			},
+    			{"prefix": {"Name": "新华社"}}
+    			]
     		}
-    	}
+    	},
+    	"_source":["Name","OperName","City"]
     }
 
+    {
+      "query": {
+        "boosting": {
+          "positive": {
+            "term": {
+              "Name": "新华社"
+            }
+          },
+          "negative": {
+            "prefix": {
+              "Name": "新华社"
+            }
+          },
+          "negative_boost": 0.2
+        }
+      },
+      "_source": [
+        "Name"
+      ]
+    }
+
+
+
+   #1.5 match_all 权重  https://blog.csdn.net/u010587476/article/details/70210570
+    {
+    "query" : {
+    "query_string" : {
+    "fields" : ["Name^10", "OperName^5", "City"],"query" : "\"胡文俭\"",
+    "use_dis_max" : false
+    }},
+     "_source": ["Name","OperName","City"],
+     "from": 0,
+     "size": 100
+    }
+
+
+
+###### search chinese name,like this
+
+{
+  "query": {
+    "query_string": {
+      "fields": [
+        "Name^0.5",
+        "OperName^500",
+        "City"
+      ],
+      "query": "\"陈阿婆\"",
+      "use_dis_max": false
+    }
+  },
+  "_source": [
+    "Name",
+    "OperName",
+    "City",
+    "regist_capi"
+  ],
+  "sort": {
+    "regist_capi": "desc"
+  },
+  "from": 0,
+  "size": 100
+}
 
 
 
