@@ -128,3 +128,37 @@
 
   https://coyee.com/article/10764-23-useful-elasticsearch-example-queries
   #多字段查询 提高分值
+
+
+#### 桶查询 省份数量
+
+{
+  "query": {
+    "query_string": {
+      "query": "胡文俭"
+    }
+  },
+  "aggs": {
+    "Province": {
+      "terms": {
+        "field": "Province"
+      }
+    },
+    "SubIndustry": {
+          "terms": {
+            "field": "SubIndustry"
+          }
+        }
+  },
+  "_source": [
+    "Name",
+    "OperName",
+    "City",
+    "regist_capi"
+  ],
+  "sort": {
+    "regist_capi": "desc"
+  },
+  "from": 0,
+  "size": 100
+}

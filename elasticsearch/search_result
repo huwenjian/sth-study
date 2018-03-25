@@ -1,0 +1,63 @@
+##如果搜索大概是人名的
+{
+	"query": {
+		"query_string": {
+			"fields": [
+				"Name^0.1",
+				"OperName^50",
+				"City"
+			],
+			"query": "胡锦家",
+			"use_dis_max": false
+		}
+	},
+	"aggs": {
+		"Province": {
+			"terms": {
+				"field": "Province"
+			}
+		},
+		"SubIndustry": {
+			"terms": {
+				"field": "SubIndustry"
+			}
+		}
+	},
+	"_source": [
+		"Name",
+		"OperName",
+		"City",
+		"regist_capi"
+	],
+	"from": 0,
+	"size": 100
+}
+
+
+## 如果按照正常搜索 先进行排序即可 @todo 需要进一步优化
+{
+	"query": {
+		"query_string": {
+			"default_field": "Name",
+			"query": "新华社"
+		}
+	},
+	"aggs": {
+		"Province": {
+			"terms": {
+				"field": "Province"
+			}
+		},
+		"SubIndustry": {
+			"terms": {
+				"field": "SubIndustry"
+			}
+		}
+	},
+	"sort": {
+		"regist_capi": "desc"
+	}
+}
+
+
+## 如果是 品牌,应该按照上述搜索 @todo 大概如此 需进一步确定 先把品牌问题加上
