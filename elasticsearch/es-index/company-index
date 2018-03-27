@@ -1,4 +1,4 @@
-curl -X PUT "http://172.25.0.244:9200/creditdb" -d '{
+curl -X PUT "http://172.25.0.244:9200/hello" -d '{
     "settings" : {
         "analysis" : {
             "analyzer" : {
@@ -8,17 +8,6 @@ curl -X PUT "http://172.25.0.244:9200/creditdb" -d '{
             }
         }
     },
-
-      "description" : "date-personal",
-      "processors" : [
-        {
-          "date" : {
-            "field" : "initial_date",
-            "target_field" : "timestamp",
-            "formats" : ["yyyy-MM-dd hh:mm:ss"]
-          }
-        }
-      ],
 
     "mappings" : {
         "mongodbtoes" : {

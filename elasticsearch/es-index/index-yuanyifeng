@@ -1,6 +1,8 @@
 # http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html
 
-curl -X PUT 'localhost:9200/accounts' -d '
+#credit_index
+
+curl -X PUT '172.29.11.50:8001/hello' -d '
 {
   "mappings": {
     "person": {
@@ -24,3 +26,17 @@ curl -X PUT 'localhost:9200/accounts' -d '
     }
   }
 }'
+
+#put_data
+
+
+
+curl -X PUT '172.29.11.50:8001/hello/test/2' -d '
+{
+    "user" : "???????????",
+    "title" :  "??????????",
+    "desc" :   "???????????ui????????????"
+}'
+
+
+

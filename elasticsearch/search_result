@@ -34,12 +34,12 @@
 }
 
 
-## 如果按照正常搜索 先进行排序即可 @todo 需要进一步优化
+## 如果按照正常搜索 先进行排序即可 加高亮 @todo 需要进一步优化
 {
 	"query": {
 		"query_string": {
 			"default_field": "Name",
-			"query": "新华社"
+			"query": "中国经济信息社"
 		}
 	},
 	"aggs": {
@@ -56,7 +56,15 @@
 	},
 	"sort": {
 		"regist_capi": "desc"
-	}
+	},
+       "highlight": {
+         "fields": {
+           "Name": {
+             "pre_tags": "<red>",
+             "post_tags": "</red>"
+           }
+         }
+       }
 }
 
 
