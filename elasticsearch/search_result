@@ -140,4 +140,16 @@
   ]
 }
 
-##bool
+## multi_match
+
+{
+  "query": {
+    "multi_match": {
+        "query":                "Quick brown fox",
+        "type":                 "best_fields",
+        "fields":               [ "Name", "_all" ],
+        "tie_breaker":          0.3,
+        "minimum_should_match": "30%"
+    }
+    }
+}
