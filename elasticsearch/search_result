@@ -23,12 +23,18 @@
 			}
 		}
 	},
-	"_source": [
-		"Name",
-		"OperName",
-		"City",
-		"regist_capi"
-	],
+	"sort": [
+          {
+            "regist_capi": {
+              "order": "desc"
+            }
+          },
+          {
+            "_score": {
+              "order": "desc"
+            }
+          }
+        ],
 	"from": 0,
 	"size": 100
 }
@@ -38,7 +44,7 @@
 {
 	"query": {
 		"query_string": {
-			"default_field": "Name",
+			"fields": ["Name"],
 			"query": "中国经济信息社"
 		}
 	},
@@ -54,9 +60,18 @@
 			}
 		}
 	},
-	"sort": {
-		"regist_capi": "desc"
-	},
+	"sort": [
+        {
+          "_score": {
+            "order": "desc"
+          }
+        },
+        {
+          "regist_capi": {
+            "order": "desc"
+          }
+        }
+      ],
        "highlight": {
          "fields": {
            "Name": {
@@ -96,3 +111,33 @@
      	"from": 0,
      	"size": 100
 }
+
+## mutch_phrase_prefix
+{
+  "profile": true,
+  "query": {
+    "match_phrase_prefix": {
+      "Name": "小米"
+    }
+  },
+  "sort": [
+    {
+      "_score": {
+        "order": "desc"
+      }
+    },
+    {
+      "regist_capi": {
+        "order": "desc"
+      }
+    }
+  ],
+  "_source": [
+    "Name",
+    "OperName",
+    "City",
+    "regist_capi"
+  ]
+}
+
+##bool
