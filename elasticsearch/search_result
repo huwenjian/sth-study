@@ -69,3 +69,30 @@
 
 
 ## 如果是 品牌,应该按照上述搜索 @todo 大概如此 需进一步确定 先把品牌问题加上
+{
+	"query": {
+		"term": {
+			"Name": "alfred"
+		}
+	},
+     	"aggs": {
+     		"Province": {
+     			"terms": {
+     				"field": "Province"
+     			}
+     		},
+     		"SubIndustry": {
+     			"terms": {
+     				"field": "SubIndustry"
+     			}
+     		}
+     	},
+     	"_source": [
+     		"Name",
+     		"OperName",
+     		"City",
+     		"regist_capi"
+     	],
+     	"from": 0,
+     	"size": 100
+}
