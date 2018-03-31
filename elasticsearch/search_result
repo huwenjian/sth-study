@@ -140,7 +140,7 @@
   ]
 }
 
-## multi_match for 命中率
+## multi_match => for 命中率 https://blog.csdn.net/dm_vincent/article/details/41842691
 
 {
   "query": {
