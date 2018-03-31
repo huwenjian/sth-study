@@ -140,16 +140,18 @@
   ]
 }
 
-## multi_match
+## multi_match for 命中率
 
 {
   "query": {
     "multi_match": {
-        "query":                "Quick brown fox",
-        "type":                 "best_fields",
-        "fields":               [ "Name", "_all" ],
-        "tie_breaker":          0.3,
-        "minimum_should_match": "30%"
+      "query": "中国经济",
+      "type": "best_fields",
+      "fields": [
+        "Name"
+      ],
+      "tie_breaker": 0.1,
+      "minimum_should_match": "10%"
     }
-    }
+  }
 }
