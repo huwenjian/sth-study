@@ -153,5 +153,35 @@
       "tie_breaker": 0.1,
       "minimum_should_match": "10%"
     }
-  }
+  },
+     "sort": [
+       {
+         "_score": {
+           "order": "desc"
+         }
+       },
+       {
+         "regist_capi": {
+           "order": "desc"
+         }
+       }
+     ],
+     "_source": [
+       "Name",
+       "OperName",
+       "City",
+       "regist_capi"
+     ]
+}
+
+
+{
+	"query": {
+		"multi_match": {
+			"query": "小",
+			"fields": ["name"],
+			"type": "phrase_prefix",
+			"operator": "or"
+		}
+	}
 }

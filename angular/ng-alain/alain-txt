@@ -1,0 +1,4 @@
+# ngalin
+#http://ng-alain.com/docs/getting-started
+    ### 需要依赖 @delon/cli
+        ng new -c=@delon/cli my-app
