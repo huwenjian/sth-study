@@ -341,4 +341,37 @@
                       }
                     }
 
+            ##Count API
+                 # count
+                 GET test_search_index/_count
+                 {
+                   "query":{
+                     "match":{
+                       "username": "alfred"
+                     }
+                   }
+                 }
+            ## source filtering
+            GET test_search_index/_search
+
+            GET test_search_index/_search?_source=username
+
+            GET test_search_index/_search
+            {
+              "_source": false
+            }
+
+            GET test_search_index/_search
+            {
+              "_source": ["username","age"]
+            }
+
+            GET test_search_index/_search
+            {
+              "_source": {
+                "includes": "*i*",
+                "excludes": "birth"
+              }
+            }
+
 
