@@ -1,0 +1,5 @@
+## 分布式介绍及cerebro图形化工具
+
+
+    ##命令 bin/elasticsearch -Ecluster.name=my_cluster -Epath.data=my_cluster_node1 -Enode.name=node1 -Ehttp.port=5200 -d
+
