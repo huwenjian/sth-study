@@ -3,7 +3,7 @@ curl -X PUT "http://172.25.0.244:9200/hello" -d '{
         "analysis" : {
             "analyzer" : {
                 "ik_max" : {
-                    "tokenizer" : "ik_smart"
+                    "tokenizer" : "ik_max_word"
                 }
             }
         }
