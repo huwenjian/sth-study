@@ -8,7 +8,16 @@
     ### spark安装目录下看一下jars中scala开头的jar包就可以了 ##
 
 
-### spark的shell
+### spark的配置ssh-keygen 不需要每次输密码
+    ssh-localhost 
+    psw：
+    
+    ssh-keygen 回车即可 
+    cd .ssh 
+    touch authorized_keys
+    cat id_rsa.pub > authodrized_keys 
+    chmod 600 authodrized_keys 
+    
 
 
     
