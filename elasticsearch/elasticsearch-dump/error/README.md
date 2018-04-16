@@ -15,3 +15,7 @@
     "reason":{"type":"search_context_missing_exception","reason":"No search context found for id [99896]"}}],
     "caused_by":{"type":"search_context_missing_exception","reason":"No search context found for id 
     [99896]"}},"status":404}
+    
+    
+>   解决方案
+    
