@@ -22,4 +22,4 @@
     --type=query.json
     elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=creditdb1.json  --type=data
     
-    elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=credit-xiaomi.json  --type=query.json 
+    elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=credit-xiaomi.json  --type=query.json --searchBody '{"query":{"term":{"Name": "小米"}}}'
