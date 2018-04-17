@@ -19,7 +19,8 @@
     可组装参数: 
     --ignore-errors=true --scrollTime=240m
     --searchBody '{"query":{"term":{"Name": "小米"}}}'
-    --type=query.json
     elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=creditdb1.json  --type=data
-    
-    elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=credit-xiaomi.json  --type=query.json --searchBody '{"query":{"term":{"Name": "小米"}}}'
+    ##官方文档
+    elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=credit-xiaomi.json   --searchBody '{"query":{"term":{"Name": "小米"}}}'
+    ##windows cmd
+    elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=credit-xiaomi.json  --searchBody={\"query\":{\"term\":{\"Name\":\"小米\"}}}
