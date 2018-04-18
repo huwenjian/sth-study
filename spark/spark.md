@@ -18,6 +18,11 @@
     cat id_rsa.pub > authodrized_keys 
     chmod 600 authodrized_keys 
     
+### 启动集群
+    启动master ./sbin/start-master.sh
+    启动worker worker ./bin/spark-class
+    提交作业 ./bin/spark-submit
+    
 
 
     
