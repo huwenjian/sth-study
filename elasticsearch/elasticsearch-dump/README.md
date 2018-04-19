@@ -24,3 +24,6 @@
     elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=credit-xiaomi.json   --searchBody '{"query":{"term":{"Name": "小米"}}}'
     ##windows cmd
     elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=credit-xiaomi.json  --searchBody={\"query\":{\"term\":{\"Name\":\"小米\"}}}
+    # from size 没有作用 
+    elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=credit-xiaomi3.json  --searchBody={\"query\":{\"term\":{\"Name\":\"小米\"}},\"sort\":{\"regist_capi\":{\"order\":\"desc\"}},\"from\":1,\"size\":1}
+    
