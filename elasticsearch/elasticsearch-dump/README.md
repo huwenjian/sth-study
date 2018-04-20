@@ -22,6 +22,7 @@
     --params='{"preference" : "_shards:0"}'
 ## src-es => tar-es
     elasticdump  --input=http://172.29.11.50:8001/creditdb --output=http://172.16.1.72:9200/creditdb    --type=mapping
+    elasticdump  --input=http://172.16.1.72:9200/creditdb --output=mapping.txt    --type=mapping
     elasticdump  --ignore-errors=true --scrollTime=240m  --input=http://172.29.11.50:8001/creditdb --output=http://172.16.1.72:9200/creditdb    --type=data 
     --searchBody '{"query":{"term":{"Name": "小米"}}}'
 
@@ -40,4 +41,5 @@
     
     
 ### txt -> es
-    elasticdump  --input=creditdb1.json  --output=http://172.16.1.72:9200/creditdb  --type=data limit=10000
+    elasticdump  --input=credit-xiaomi.json  --output=http://172.16.1.72:9200/creditdb  --type=data 
+    elasticdump  --input=mapping.txt     --output=http://172.16.1.72:9200/creditdb1   --type=mapping
