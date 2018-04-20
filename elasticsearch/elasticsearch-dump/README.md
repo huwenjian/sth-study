@@ -1,6 +1,17 @@
 ##install
     npm install elasticdump -g
-
+    在linux上 安装，步骤如下：
+    
+      1) yum install epel-release  
+    
+       2) yum install nodejs  
+       3) yum install nodejs npm  
+       4) npm install elasticdump  
+    
+    使用命令行：
+    
+       1) cd node_modules/elasticdump/bin  
+       2)./elasticdump  --input=http://192.168.10.10:9200/or --output=http://192.168.10.20:9200/newOr --type=data  
 
 
 ## param
@@ -27,3 +38,6 @@
     # from size 没有作用 
     elasticdump  --input=http://172.29.11.50:8001/creditdb  --output=credit-xiaomi3.json  --searchBody={\"query\":{\"term\":{\"Name\":\"小米\"}},\"sort\":{\"regist_capi\":{\"order\":\"desc\"}},\"from\":1,\"size\":1}
     
+    
+### txt -> es
+    elasticdump  --input=creditdb1.json  --output=http://172.16.1.72:9200/creditdb  --type=data limit=10000
