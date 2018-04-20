@@ -26,7 +26,7 @@
     --searchBody '{"query":{"term":{"Name": "小米"}}}'
 
 
-## src-es => tar.txt hu564818998hu8072 yan:906246914 hu9106075965b2e2p
+## src-es => tar.txt hu564818998hu1137 yan:906246914 hu9106075965b2e2p
     可组装参数: 
     --ignore-errors=true --scrollTime=240m
     --searchBody '{"query":{"term":{"Name": "小米"}}}'
