@@ -41,5 +41,5 @@
     
     
 ### txt -> es
-    elasticdump  --input=credit-xiaomi.json  --output=http://172.16.1.72:9200/creditdb  --type=data 
+    elasticdump  --input=credit-xiaomi.json  --output=http://172.16.1.72:9200/creditdb3  --type=data 
     elasticdump  --input=mapping.txt     --output=http://172.16.1.72:9200/creditdb1   --type=mapping
