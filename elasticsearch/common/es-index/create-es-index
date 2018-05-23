@@ -42,6 +42,7 @@ http://172.29.11.50:8001/hello/_analyze?analyzer=ik_max_word&text=中国经济�
 http://172.29.11.50:8001/hello/_analyze?analyzer=ik_smart&text=中国经济信息社
 
 #测试hanlp analyzer hanlp-index（索引模式）和hanlp-smart（智能模式） hanlp-index：尽可能的切分多的结果 hanlp-smart：切分少的词
+不是很好用
 http://172.29.11.50:8001/hello/_analyze?analyzer=hanlp-index&text=中国经济信息社
 http://172.29.11.50:8001/hello/_analyze?analyzer=hanlp-smart&text=中国经济信息社
 
