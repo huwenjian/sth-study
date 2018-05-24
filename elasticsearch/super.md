@@ -8,4 +8,5 @@
 ##### 深入理解Elasticsearch 读书笔记
     https://blog.csdn.net/laoyang360/article/details/78554610
     
-              
+#####23个有用的ElasticSearch 查询例子
+    https://www.iteblog.com/archives/1741.html              
