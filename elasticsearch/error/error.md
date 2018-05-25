@@ -25,3 +25,16 @@
          }
      }] 
     }'
+    
+##   查找原因    
+#### 手动控制分片数量
+     http://rockelixir.iteye.com/blog/1890872
+    
+#### 磁盘空间引起ES集群shard unassigned的处理过程
+     https://www.jianshu.com/p/443cf6ce87d5  
+     
+#### 优化ElasticSearch之合理分配索引分片
+     https://segmentfault.com/a/1190000008868585     
+     
+#### 通过查看集群shard的api可以看到每个shard的存储大小：
+     curl -XGET 'http://172.29.11.50:8001/_cat/allocation?v&pretty'    
