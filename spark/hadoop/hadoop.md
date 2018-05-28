@@ -8,4 +8,7 @@
     或者在具体应用程序代码中加入
     [java] view plain copy
     System.setProperty("hadoop.home.dir","D:/javalibs/hadoopbin" )  
-    其中winutils.exe相关文件放在D:/javalibs/hadoopbin/的bin/目录下    
+    其中winutils.exe相关文件放在D:/javalibs/hadoopbin/的bin/目录下  
+    
+## hadoop mac 
+    https://blog.csdn.net/u012336567/article/details/50778989      
