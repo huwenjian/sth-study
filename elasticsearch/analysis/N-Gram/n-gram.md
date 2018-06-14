@@ -39,6 +39,38 @@
     	}
     }'
     
+ ### n-gram 将特殊字符串作为索引条件
+    https://blog.csdn.net/i6448038/article/details/51614220
+   ###建立索引   
+    curl -X PUT "http://172.16.1.72:9200/ngram" -d '{
+        	"settings": {
+        		"analysis": {
+        			"analyzer": {
+        				"ngram_analyzer": {
+        					"tokenizer": "ngram_tokenizer"
+        				}
+        			},
+        			"tokenizer": {
+        				"ngram_tokenizer": {
+        					"type": "ngram",
+        					"min_gram": 1,
+        					"max_gram": 10,
+        					"token_chars": ["letter", "digit","punctuation"]
+        				}
+        			}
+        		}
+        	},
+        	"mappings": {
+        		"_default_": {
+        			"properties": {
+        				"Name": {
+        					"type": "string",
+        					"analyzer": "ngram_analyzer"
+        				}
+        			}
+        		}
+        	}
+        }'
 #### test 
     http://172.16.1.72:9200/ngram/_analyze?analyzer=ngram_analyzer&text=中国经济信息社    
     
