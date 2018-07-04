@@ -1,0 +1,24 @@
+###1
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "term": {
+            "companyName": "昆山自然环保"
+          }
+        }
+      ],
+      "minimum_should_match": 1,
+      "boost": 1
+    }
+  },
+  "_source": [
+    "companyName",
+    "operName",
+    "city",
+    "registCapi"
+  ],
+  "from": 0,
+  "size": 100
+}
