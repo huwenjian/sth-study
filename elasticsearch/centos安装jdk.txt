@@ -1,0 +1,132 @@
+===卸载自带的jdk
+rpm -qa|grep jdk
+rpm -e --nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.x86_64
+rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.x86_64
+
+rpm -e  --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
+rpm -e  --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+rpm -e  --nodeps copy-jdk-configs-1.2-1.el7.noarch
+
+
+
+#东坝
+rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.x86_64
+rpm -e --nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.x86_64
+
+
+
+将文件放到usr下的
+cd usr/java
+tar zxvf jdk-7u76-linux-x64.tar.gz 
+tar -zxvf /usr/local/jdk/jdk-8u144-linux-x64.tar.gz
+
+
+配置路径etc/profile
+#set java environment           jdk1.8.0_65
+JAVA_HOME=/usr/java/jdk1.7.0_76                          
+JRE_HOME=/usr/java/jdk1.7.0_76/jre
+CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+export JAVA_HOME JRE_HOME CLASS_PATH PATH
+
+
+#set java environment 
+JAVA_HOME=/usr/java/jdk1.8
+PATH=$JAVA_HOME/bin:$PATH
+CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
+export PATH JAVA_HOME CLASSPATH
+
+
+#setJdk
+echo "JAVA_HOME=/usr/local/jdk/jdk1.8" >> /etc/profile
+echo "PATH=$JAVA_HOME/bin:$PATH" >> /etc/profile
+echo "CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar" >> /etc/profile
+echo "export PATH JAVA_HOME CLASSPATH" >> /etc/profile
+
+
+====安装es 
+unzip /usr/local/es/elasticsearch-2.3.4.zip
+mkdir /usr/local/es/data
+mkdir /usr/local/es/logs
+mkdir /usr/local/es/elasticsearch-2.3.4/plugins
+mv /usr/local/es/elasticsearch-2.3.4/plugins/analysis-ik/ /usr/local/es/elasticsearch-2.3.4/plugins/ik
+
+
+====安装es unzip /usr/local/es/elasticsearch-2.3.4.zip
+rpm -ivh elasticsearch-2.2.0.rpm 
+sudo /sbin/chkconfig --add elasticsearch
+sudo service elasticsearch start
+    开机启动    systemctl start elasticsearch.service
+取消开机启动    systemctl stop  elasticsearch.service
+
+====安装head插件
+路径 usr/share/elasticsearch/plugins/
+
+注 ：查看linux端口   
+
+elasticsearch 集群为什么不能发现集群 防火墙开着局域网内不能访问
+
+
+service elasticsearch restart
+
+======linux打开端口
+/sbin/iptables -I INPUT -p tcp --dport 9200 -j ACCEPT   写入修改
+/etc/init.d/iptables save   保存修改
+service iptables restart    重启防火墙，修改生效
+	 关闭端口
+/sbin/iptables -I INPUT -p tcp --dport 80 -j DROP   写入修改
+service iptables restart    重启防火墙，修改生效
+	查看端口状态
+/etc/init.d/iptables status
+
+============插件   https://my.oschina.net/secisland/blog/636213
+SQL language Plugin: 通过Sql语法来搜索Elasticsearch
+
+
+Linux关闭防火墙命令
+
+1） 永久性生效，重启后不会复原
+开启：chkconfig iptables on
+关闭：chkconfig iptables off
+
+2） 即时生效，重启后复原
+开启：service iptables start
+关闭：service iptables stop
+
+后台执行服务
+nohup 
+
+
+centos7安装mysql5.7  http://blog.csdn.net/xyang81/article/details/51759200
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Huge123!' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'mysdc'@'%' IDENTIFIED BY 'mysdc' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'liushuai'@'%' IDENTIFIED BY 'Liu1234!' WITH GRANT OPTION;
+set password for 'root'@'localhost'=password('Hu!@#456');
+
+ps -ef|grep mysql
+
+whereis mysql
+
+9:18
+
+root
+Hu！@#￥%……&*（
+
+hu8989
+
+hugedog0206
+alyhu8989156_
+
+
+114.215.97.34(公)
+10.163.190.222(内)
+
+mysql  hu1234
+Hu!@#456
+mysql huge Huge123!
+
+mysql liushuai Liu1234!
+swagger2的文件页面去测试 http://localhost:8080/app/swagger-ui.html 
+ http://localhost/druid/index.html,会自动跳到http://localhost:8080/app/druid/login.html登录页面，登录进去会出现以下界面
+

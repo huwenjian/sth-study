@@ -51,8 +51,9 @@ this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http:
 
 #后台启动
     pwd
-     /elasticsearch-head/node_modules/grunt/bin
+     /es/head/node_modules/grunt/bin
     ./grunt server &
+    nohup ./head/node_modules/grunt/bin/grunt server & 2>&1 &
 
 #关闭插件
 
