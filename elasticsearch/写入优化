@@ -1,0 +1,7 @@
+### 全量数据加载 副本设置为1
+   -XPut http://172.29.5.25:9200/credit/_settings
+    {
+        "settings" : {
+            "number_of_replicas" : 0
+        }
+    }
