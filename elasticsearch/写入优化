@@ -5,3 +5,37 @@
             "number_of_replicas" : 0
         }
     }
+
+
+### 减少shard间隔
+     -XPut http://172.29.5.25:9200/credit/_settings
+     {
+         "index" : {
+             "refresh_interval" : "-1"
+         }
+     }
+### 适当增加节点threadpool参数
+     -XPut http://172.29.5.25:9200/_cluster/settings
+     {
+        "transient":{"threadpool.bulk.queue_size": 100000}
+     }
+
+
+###====================完成后=========================
+
+### 全量数据加载完成后 设置副本为1
+    -XPut http://172.29.5.25:9200/credit/_settings
+     {
+        "settings" : {
+            "number_of_replicas" : 1
+        }
+    }
+
+
+### 全量数据加载完成后 设置shard间隔为20s
+     -XPut http://172.29.5.25:9200/credit/_settings
+     {
+         "index" : {
+             "refresh_interval" : "20s"
+         }
+     }
