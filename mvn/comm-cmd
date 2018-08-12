@@ -3,9 +3,9 @@
 
     like :
     <dependency>
-        <groupId>com.github.huanshare</groupId>
-        <artifactId>swagger-ui-layer</artifactId>
-        <version>1.0.0</version>
+      <groupId>com.github.caspar-chen</groupId>
+      <artifactId>swagger-ui-layer</artifactId>
+      <version>${last-version}</version>
     </dependency>
 
-    mvn install:install-file -DgroupId=com.github.huanshare -DartifactId=swagger-ui-layer -Dversion=1.0.0 -Dpackaging=jar -Dfile=D:\work\project\personal\swagger-ui-layer\swagger-ui-layer\target\swagger-ui-layer-0.0.6.jar
+    mvn install:install-file -DgroupId=com.github.caspar-chen -DartifactId=swagger-ui-layer -Dversion=0.0.6 -Dpackaging=jar -Dfile=D:\work\project\personal\swagger-ui-layer\swagger-ui-layer\target\swagger-ui-layer-0.0.6.jar
