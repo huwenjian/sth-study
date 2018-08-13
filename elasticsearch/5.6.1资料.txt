@@ -8,11 +8,23 @@ http://blog.csdn.net/deliciousion/article/details/78072230
 
 #root https://blog.csdn.net/showhilllee/article/details/53404042
 groupadd es
-useradd es -g es -p elasticsearch
+useradd es -g es -p es
 chown -R es:es  es
 
 su elsearch
 
+## 查看用户组
+    cat /etc/group
+## 查看用户
+    cat  /etc/passwd
+
+
+## Creating mailbox file
+    在linux下用useradd添加用户时,出现错误:Creating mailbox file: 文件已存在?
+      怎么解决:
+          原来linux下添加用户后,会在系统里自动加一个邮箱(系统邮箱),路径是:/var/spool/mail/用户名.
+          可以直接用命令#rm -rf /var/spool/mail/用户名
+          这样就可以再次添加同一名字的用户.
 #vm太小
 http://blog.csdn.net/u012371450/article/details/51776505
 
