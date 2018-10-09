@@ -8,3 +8,4 @@ http://blog.csdn.net/slovyz/article/details/53259305
     curl -I -H "Accept-Encoding: gzip, deflate" "http://localhost" ->测试gzip是否开启
     curl -I -H "Accept-Encoding: gzip, deflate" "http://localhost/main.4b590771428cad5060b5.bundle.js" ->测试js 压缩是否开启
     curl -I -H "Accept-Encoding: gzip, deflate" "http://localhost/assets/images/bg-new.jpg" ->测试js 压缩是否开启
+    curl -I -H "Accept-Encoding: gzip, deflate" "http://localhost/bg-new2.b95728ca5fb52aabbcb4.png" ->测试js 压缩是否开启
