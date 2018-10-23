@@ -79,6 +79,15 @@
 # 结果
     gulp 对angular --prod 打的包 对未至开发项目 基本无任何影响 压缩基本无效
 
+# 改进 用gzip
+------
+##### https://github.com/jstuckey/gulp-gzip
+------
+    "gulp-gzip": "^1.4.2"
+
+
+    .pipe(gzip({gzipOptions: {level: 9}}))
+
 
 
 
