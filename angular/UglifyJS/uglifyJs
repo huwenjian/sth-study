@@ -1,0 +1,14 @@
+
+
+### https://www.npmjs.com/package/uglify-js
+
+##### UglifyJS安装：
+      npm install uglify-js -g
+##### 使用
+      uglifyjs common.chunk.js -c -o scripts.4992f43ffc1560bea020.bundle.js
+
+##### 结果
+      因为scripts.4992f43ffc1560bea020.bundle.js 是angular --prod 打包而来
+      压缩前 2133  ==>  压缩后 2133
+      ！！无明显变化
+
