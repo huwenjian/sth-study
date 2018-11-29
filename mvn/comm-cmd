@@ -9,3 +9,10 @@
     </dependency>
 
     mvn install:install-file -DgroupId=com.github.caspar-chen -DartifactId=swagger-ui-layer -Dversion=0.0.6 -Dpackaging=jar -Dfile=D:\work\project\personal\swagger-ui-layer\swagger-ui-layer\target\swagger-ui-layer-0.0.6.jar
+
+
+
+#mvn 打包本地方法后执行main方法的方式
+    https://blog.csdn.net/testdeveloper/article/details/78797327
+        1 在pom.xml中增加配置
+        2 使用mvn命令
