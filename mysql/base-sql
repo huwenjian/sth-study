@@ -5,3 +5,6 @@ select table_name,table_rows from tables
 where TABLE_SCHEMA = 'xhs_eci'
 
 order by table_rows desc;
+
+
+#### 导入数据
