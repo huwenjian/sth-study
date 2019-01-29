@@ -44,6 +44,10 @@
     父模块统一管理依赖包 使用dependencyManagement标签
     子模块需要在pom中声明父模块 使用parent 标签
 
+### 打包
+    mvn clean package -Dmaven.test.skip=true -U
+    ~~~ 跳过test -U 强制打包
+
 
 
 
