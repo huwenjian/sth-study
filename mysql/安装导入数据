@@ -15,10 +15,15 @@
 
 
 
+## MYSQL安装出现问题（The service already exists）
+    cd /d F:\mysql-5.7.19-win32\bin
+    sc query mysql
+    sc delete mysql
 
-
-
-
+    mysqld install
+    mysqld --initialize-insecure --user=mysql
+    net start mysql
+    net stop mysql
 
 
 
