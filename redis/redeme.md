@@ -8,3 +8,9 @@
 ###### 2 启动redis:
     
     redis-server.exe redis.windows.conf
+    
+    
+    
+###### 3 redis 清空密码
+    ./redis.cli 
+    config set requirepass "" 
