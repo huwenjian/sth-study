@@ -8,3 +8,25 @@
     yum clean all
     yum makecache
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 导出文档
+    yum -y install lrzsz
+    # 导出1.log
+        sz 1.log

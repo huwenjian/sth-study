@@ -14,3 +14,11 @@
 ###### 3 redis 清空密码
     ./redis.cli 
     config set requirepass "" 
+    
+    
+    
+    
+    
+## linux下安装redis
+         yum install redis
+         
