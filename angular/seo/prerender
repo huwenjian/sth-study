@@ -69,3 +69,4 @@ https://www.cnblogs.com/qianjun2017/p/12512051.html
 
  测试credit100线上--企业信用
   curl http://172.25.9.141:3000/https://www.credit100.com/creditPoints >creditPoints.html
+  curl http://172.25.9.141:3000/https://www.credit100.com/cityService/cityCreditNav/leadershipCockpit >cityService-cityCreditNav-leadershipCockpit.html
