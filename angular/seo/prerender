@@ -58,6 +58,14 @@ https://www.cnblogs.com/qianjun2017/p/12512051.html
  curl http://127.0.0.1
  curl  --header "User-agent:Bingbot" http://127.0.0.1
  测试credit100线上首页
- curl http://172.25.9.141:3000/http://www.credit100.com > index.html
- 测试credit100线上企业信用
- curl http://172.25.9.141:3000/http://www.credit100.com/creditPoints >creditPoints.html
+ curl http://172.25.9.141:3000/https://www.credit100.com > index.html
+
+ 测试credit100线上--信用发布
+ curl http://172.25.9.141:3000/https://www.credit100.com/creditReleaseIndex >creditReleaseIndex.html
+
+ 测试credit100线上--城市信用
+ curl http://172.25.9.141:3000/https://www.credit100.com/cityService/cityCreditNav >cityService-cityCreditNav.html
+
+
+ 测试credit100线上--企业信用
+  curl http://172.25.9.141:3000/https://www.credit100.com/creditPoints >creditPoints.html
