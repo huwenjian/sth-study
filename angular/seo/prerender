@@ -14,7 +14,7 @@ https://www.cnblogs.com/qianjun2017/p/12512051.html
 
 	执行安装命令 yum -y install google-chrome-stable –nogpgcheck
 　　安装完后默认路径为 /opt/google/chrome
-　　修改/usr/bin/google-chrome文件，最后一行改为 exec -a "$0""$HERE/chrome" "$@" --user-data-dir --no-sandbox
+　　修改/usr/bin/google-chrome文件，最后一行改为 exec -a "$0" "$HERE/chrome" "$@" --user-data-dir --no-sandbox
 
 #安装 node
     cd /opt
@@ -32,8 +32,26 @@ https://www.cnblogs.com/qianjun2017/p/12512051.html
   cnpm install
   node server.js
 
+
+
   #prerender server.js 配置
     https://www.jianshu.com/p/840f8f233af5
+    # 设置linux 环境变量
+        export REDIS_URL= redis://root:xhs123456@172.25.0.12:7001
+
+    var prerender = require('./lib');
+    var server = prerender({
+        pageLoadTimeout: 127*1000
+    });
+    server.use(prerender.sendPrerenderHeader());
+    // server.use(prerender.blockResources());
+    server.use(prerender.removeScriptTags());
+    server.use(prerender.httpHeaders());
+    server.use(require('prerender-redis-cache').set('REDIS_URL','redis://root:xhs123456@172.25.0.12:7001'));
+    //server.use(require('prerender-memory-cache'));
+
+    server.start();
+
 
 #安装nginx https://blog.csdn.net/t8116189520/article/details/81909574
 
@@ -67,35 +85,51 @@ https://www.cnblogs.com/qianjun2017/p/12512051.html
 # prerender-memory-cache
     https://github.com/prerender/prerender-memory-cache
     不持久化
+# prerender-redis-cache https://developer.aliyun.com/mirror/npm/package/prerender-redis-cache
+    npm install prerender-redis-cache --save
+    export REDIS_URL=redis://root:xhs123456@172.25.0.12:7001
 
+    server.use(require('prerender-redis-cache'));
+    #永不过期
+    vim /etc/profile
+    export PAGE_TTL=0
+    source /etc/profile
+
+# prerender-mongo-cache
+  npm install prerender-mongodb-cache --save
+  server.use(require('prerender-mongodb-cache'));
 
 #启动
-    nohup node server.js > prerender.log 2>&1 &
+    nohup node server.js > log/prerender.log 2>&1 &
 
 
 #测试
- curl http://172.25.9.141
- curl  --header "User-agent:Bingbot" http://172.25.9.141 > index.html
+ curl http://172.29.11.5
+ curl  --header "User-agent:Bingbot" http://172.29.11.5 > index.html
+ curl  --header "User-agent:localSpider" http://172.29.11.5 > index.html
+ curl --header "User-agent:localSpider" http://172.29.11.5:3000/https://www.credit100.com > index.html
  测试credit100线上首页
- curl http://172.25.9.141:3000/https://www.credit100.com > index.html
-
+ curl http://172.29.11.5:3000/http://172.29.11.5
+#问题
+ prerender 守护进程 超时 https://blog.csdn.net/qq_33834489/article/details/79247133
+ https://www.deboy.cn/prerender-vuejs1-X-SEO-best-practice.html
  测试credit100线上--信用发布
- curl http://172.25.9.141:3000/https://www.credit100.com/creditReleaseIndex >creditReleaseIndex.html
- curl http://172.25.9.141:3000/https://www.credit100.com/enterpIntroduction/enterpBasicArchives?companyId=99ceb6d3b09b99536d137b075ae9149f&companyName=%E5%A4%A9%E5%A3%AB%E5%8A%9B%E6%8E%A7%E8%82%A1%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 -> jpan.html
+ curl http://172.29.11.5:3000/https://www.credit100.com/creditReleaseIndex >creditReleaseIndex.html
+ curl http://172.29.11.5:3000/https://www.credit100.com/enterpIntroduction/enterpBasicArchives?companyId=99ceb6d3b09b99536d137b075ae9149f&companyName=%E5%A4%A9%E5%A3%AB%E5%8A%9B%E6%8E%A7%E8%82%A1%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 -> jpan.html
 
  测试credit100线上--城市信用
- curl http://172.25.9.141:3000/https://www.credit100.com/cityService/cityCreditNav >cityService-cityCreditNav.html
+ curl http://172.29.11.5:3000/https://www.credit100.com/cityService/cityCreditNav >cityService-cityCreditNav.html
 
 
  测试credit100线上--企业信用
-  curl http://172.25.9.141:3000/https://www.credit100.com/creditPoints >creditPoints.html
-  curl http://172.25.9.141:3000/https://www.credit100.com/cityService/cityCreditNav/leadershipCockpit >cityService-cityCreditNav-leadershipCockpit.html
+  curl http://172.29.11.5:3000/https://www.credit100.com/creditPoints >creditPoints.html
+  curl http://172.29.11.5:3000/https://www.credit100.com/cityService/cityCreditNav/leadershipCockpit >cityService-cityCreditNav-leadershipCockpit.html
 
  测试查询具体公司
- curl http://172.25.9.141:3000/https://www.credit100.com/enterpIntroduction/enterpBasicArchives?companyId=99ceb6d3b09b99536d137b075ae9149f&amp;companyName=%E5%A4%A9%E5%A3%AB%E5%8A%9B%E6%8E%A7%E8%82%A1%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 > tianlishi.html
+ curl http://172.29.11.5:3000/https://www.credit100.com/enterpIntroduction/enterpBasicArchives?companyId=99ceb6d3b09b99536d137b075ae9149f&amp;companyName=%E5%A4%A9%E5%A3%AB%E5%8A%9B%E6%8E%A7%E8%82%A1%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8 > tianlishi.html
 
 
- curl http://172.25.9.141:3000/render?url=https://www.credit100.com/
+ curl http://172.29.11.5:3000/render?url=https://www.credit100.com/
 
 
 
@@ -105,4 +139,47 @@ https://www.cnblogs.com/qianjun2017/p/12512051.html
  https://github.com/gsh199449/spider
 
 # [WebMagic]Https下无法抓取只支持TLS1.2的站点 https://blog.csdn.net/tateliao/article/details/95113303
+
+#HttpServletResponse和 ResponseEntity下载文件预览图片
+ https://blog.csdn.net/qq_26584263/article/details/97972922
+
+
+
+
+
+
+curl  --header "User-agent:localSpider" http://172.29.11.5/creditSerech
+|
+http://172.29.11.5:3000/http://172.29.11.5/creditSerech
+
+
+http://172.29.11.5:3000/https://www.credit100.com/creditSerech
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
