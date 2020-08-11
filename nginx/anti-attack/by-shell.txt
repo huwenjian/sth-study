@@ -35,7 +35,7 @@ service nginx reload
 cat logs/access.log | awk -F '-' '{print $NF}'
 
 #home ip
-101.200.106.9 - - [06/Jan/2018:16:05:25 +0800] "GET /jslib/lrz.all.bundle.js?_=1515225928912 HTTP/1.1" 200 32146 "http://www.credit100.com/" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36""115.34.0.239, 101.132.57.194"
+101.200.106.9 - - [06/Jan/2018:16:05:25 +0800] "GET /jslib/lrz.all.bundle.js?_=1515225928912 HTTP/1.1" 200 32146 "http://www.c.com/" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36""115.34.0.239, 101.132.57.194"
 cat testawk.log | awk -F ',' '{print $(NF-1)}'
 
 
