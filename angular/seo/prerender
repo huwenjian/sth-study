@@ -101,7 +101,22 @@ https://www.cnblogs.com/qianjun2017/p/12512051.html
 
 #启动
     nohup node server.js > log/prerender.log 2>&1 &
+    nohup node server.js > prerender.log 2>&1 &
+##### prerender 守护进程
+ 1将prerender 拷贝至 /etc/init.d/ 目录下 https://blog.csdn.net/qq_33834489/article/details/79247133
 
+    # 服务新增文件可执行权限
+    chmod +x /etc/init.d/prerender
+
+    # 重新载入systemctl
+    systemctl daemon-reload
+
+    # 启动
+    service prerender start
+ 2 forever是一个简单的命令式nodejs的守护进程 https://www.jianshu.com/p/f5f1f4d64483
+    #https://www.jianshu.com/p/f5f1f4d64483
+    npm install forever -g
+    forever start server.js
 
 #测试
  curl http://172.29.11.5
