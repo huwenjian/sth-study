@@ -171,10 +171,17 @@ http://172.29.11.5:3000/http://172.29.11.5/creditSerech
 http://172.29.11.5:3000/https://www.c.com/creditSerech
 
 
+# 查看
+cat UJWs.log  | grep -v 'Restarting Chrome' | grep -v 'Chrome connection'| grep -v 'Starting Chrome'| grep -v 'Started Chrome' | grep -v key  | grep -v https://www.credit100.com | grep -v '页面' | grep -v local
+
+cat UJWs.log | grep baiduspider| grep Bytespider | grep Googlebot |  grep 360Spider |  grep Bingbot |  grep Sogou Spider |  grep Yahoo! SlurpChina |  grep Yahoo! Slurp |  grep twitterbot |  grep facebookexternalhit |  grep rogerbot |  grep embedly |  grep quora linkpreview |  grep showyoubot |  grep outbrain |  grep pinterest |  grep slackbot |  grep vkShare |  grep W3C_Validator
+
+cat U
 
 
+#各大搜索引擎的UA https://blog.csdn.net/xiao_yi_xiao/article/details/102212025
 
-
+ Baiduspider|Googlebot|Bytespider|YoudaoBot|Sogou|JikeSpider|Sosospider|360Spider|Yahoo|EasouSpider|twitterbot|facebookexternalhit|rogerbot|embedly|quora linkpreview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator|localSpider
 
 
 
