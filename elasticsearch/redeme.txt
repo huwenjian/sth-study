@@ -1,0 +1,86 @@
+# 下载地址es
+https://www.elastic.co/cn/downloads/past-releases#elasticsearch
+
+#xpack 下载地址 https://blog.csdn.net/qq_33772352/article/details/105724577
+
+
+# es 设置开机自启
+https://www.cnblogs.com/two-bees/p/10801787.html
+
+# 设置root启动 包内已改
+https://www.orchome.com/462
+
+#head 连接
+https://blog.csdn.net/u013384984/article/details/80309024
+	http://172.30.57.49:8003/?auth_user=elastic&auth_password=changeme
+
+#node
+解压node 
+vim /etc/profile
+
+	export PATH=$PATH:/home/elastic/node-v8.9.4-linux-x64/bin
+
+source /etc/profile
+
+
+#将jdk传到其他机器
+	scp -r /home/elastic/jdk-8u144-linux-x64.tar.gz root@172.30.57.50: /home/jdk/ 
+	ZJS_system@2020
+	
+	
+# 配置jdk
+vim /etc/profile
+
+	JAVA_HOME=/home/jdk/jdk1.8.0_144
+	PATH=$JAVA_HOME/bin:$PATH
+	CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
+	export PATH JAVA_HOME CLASSPATH	
+	
+source /etc/profile
+
+
+#配置xpack
+#关闭xpack monitoring
+xpack.monitoring.enabled: false
+
+
+#设置es用户
+ 脚本
+cd /home
+mkdir /opt/esdata
+mkdir /opt/esdata/data
+mkdir /home/elastic/logs
+
+groupadd elastic
+useradd es -g elastic -p es
+
+chmod -R 777 /home/elastic es
+chmod -R 777 /opt/esdata es
+
+
+#设置vm.option
+vim /etc/sysctl.conf
+	vm.max_map_count=655360
+vim /etc/security/limits.conf
+* soft nofile 65536
+* hard nofile 131072
+* soft nproc 2048
+* hard nproc 4096
+sysctl -p 立即生效
+
+#配置xpack listen
+curl -XPUT -u elastic:changeme 'http://172.30.57.49:8001/_xpack/license' -d @license.json
+# 检查证书
+curl -XGET -u elastic:changeme 'http://172.30.57.49:8001/_license'
+#设置xpack 密码
+curl -XPUT -u elastic:changeme 'http://172.30.57.49:8001/_xpack/security/user/elastic/_password' -d '{  "password" : "xHs@123" }'
+
+
+
+#nohup启动es
+nohup ./elasticsearch > nohup.log 2>&1 &
+
+
+
+#最终访问地址 
+http://172.30.57.49:8003/?auth_user=elastic&auth_password=xHs@123
