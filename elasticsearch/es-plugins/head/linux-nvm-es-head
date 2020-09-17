@@ -54,9 +54,11 @@ this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http:
      /es/head/node_modules/grunt/bin
     ./grunt server &
     nohup ./head/node_modules/grunt/bin/grunt server & 2>&1 &
-    nohup ./home/elastic/elasticsearch-head-master/node_modules/grunt/bin/grunt server & 2>&1 &
+    nohup ./home/elastic/elasticsearch-head-master/node_modules/grunt/bin/grunt server & 2>&1 &exit
 
     nohup npm run start &
+    #在xshell执行完nohup命令后，需要再执行一次exit才能正常使用
+    nohup grunt server &exit
 
 #关闭插件
 
