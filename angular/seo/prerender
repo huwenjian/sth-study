@@ -16,6 +16,10 @@ https://www.cnblogs.com/qianjun2017/p/12512051.html
 　　安装完后默认路径为 /opt/google/chrome
 　　修改/usr/bin/google-chrome文件，最后一行改为 exec -a "$0" "$HERE/chrome" "$@" --user-data-dir --no-sandbox
 
+
+#关闭chrome
+kill -9 $(pidof chrome)
+
 #安装 node
     cd /opt
     wget https://nodejs.org/dist/v12.18.1/node-v12.18.1-linux-x64.tar.xz    // 下载
